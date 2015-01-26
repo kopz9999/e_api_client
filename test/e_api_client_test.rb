@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class EApiClientTest < ActiveSupport::TestCase
-  test "truth" do
-    assert_kind_of Module, EApiClient
+
+  test "check endpoint" do
+  	p "Verifying if configuration loads correctly"
+    assert_match "localhost:3003", EApiClient::ActiveClient::JSON::Base.global_base_url
   end
+
 end
