@@ -2,16 +2,16 @@ PATH
   remote: .
   specs:
     e_api_client (0.0.1)
-      rails (>= 4.1.0)
+      rails (~> 4.1, >= 4.1.0)
       rest-client (= 1.7.2)
 
 PATH
   remote: /Users/kopz/Rails/e_api_server
   specs:
     e_api_server (0.0.1)
-      jbuilder (>= 2.0)
-      kaminari (>= 0.16.2)
-      rails (>= 4.1.0)
+      jbuilder (~> 2.0)
+      kaminari (~> 0.16, >= 0.16.2)
+      rails (~> 4.1, >= 4.1.0)
 
 GEM
   remote: https://rubygems.org/

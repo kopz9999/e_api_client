@@ -10,47 +10,47 @@ module EApiClient
 				included do
 
 					def self.get_base_url
-						@@base_url ||= Pluggable.global_base_url
+						@base_url ||= Pluggable.global_base_url
 					end
 
 					def self.base_url(val)
-						@@base_url = val
+						@base_url = val
 					end
 
 					def self.get_model_resources
-						@@model_resources ||= self.name.downcase.underscore.pluralize
+						@model_resources ||= self.name.downcase.underscore.pluralize
 					end
 
 					def self.model_resources(val)
-						@@model_resources = val
+						@model_resources = val
 					end
 
 					def self.get_model_response_single_name
-						@@model_response_single_name
+						@model_response_single_name
 					end
 
 					def self.model_response_single_name(val)
-						@@model_response_single_name = val
+						@model_response_single_name = val
 					end
 
 					def self.get_model_request_single_name
-						@@model_request_single_name
+						@model_request_single_name
 					end
 
 					def self.model_request_single_name(val)
-						@@model_request_single_name = val
+						@model_request_single_name = val
 					end					
 
 					def self.get_model_response_plural_name
-						@@model_response_plural_name
+						@model_response_plural_name
 					end
 
 					def self.model_response_plural_name( val )
-						@@model_response_plural_name = val
+						@model_response_plural_name = val
 					end
 
 					def self.api_attributes
-						@@api_attributes ||= []
+						@api_attributes ||= []
 					end
 
 					def self.set_json_identifiers_by_class
