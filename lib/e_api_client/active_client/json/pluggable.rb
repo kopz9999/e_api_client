@@ -16,23 +16,23 @@ module EApiClient
 					@@global_base_url = global_base_url
 				end
 
-				def self.do_request(url, parameters, request_method)
+				def self.do_request(url, parameters, request_method, format)
 					default_handler = lambda{|response, request, result| response }
 					case request_method 
 						when RequestMethods::GET
-							result = RestClient.get url, parameters, &default_handler
+							result = RestClient.get url, { params: parameters, :accept => format }, &default_handler
 						when RequestMethods::POST
-							result = RestClient.post url, parameters, &default_handler
+							result = RestClient.post url, parameters, { :accept => format }, &default_handler
 						when RequestMethods::PUT
-							result = RestClient.put url, parameters, &default_handler
+							result = RestClient.put url, parameters, { :accept => format }, &default_handler
 						when RequestMethods::DELETE
-							result = RestClient.delete url, parameters, &default_handler
+							result = RestClient.delete url, { params: parameters, :accept => format }, &default_handler
 					end
 					result
 				end
 
-				def self.get_json(url, parameters, request_method)
-					result = do_request( url, parameters, request_method )					
+				def self.get_json(url, parameters, request_method, format)
+					result = do_request( url, parameters, request_method, format )					
 					if result.code < StatusCodes::BadRequest
 						if result.code == StatusCodes::NoContent
 							return nil
@@ -81,7 +81,7 @@ module EApiClient
 
 					# Returns a URL based on configuration
 					# return [String]
-					def self.build_request_url( resource, format, param_key = nil )
+					def self.build_request_url( resource, param_key = nil )
 						request_url = self.get_base_url
 						if resource.nil?
 							request_url += "/#{self.get_model_resources}"
@@ -89,7 +89,7 @@ module EApiClient
 							request_url += "/#{resource}"
 						end
 						request_url += "/#{param_key}" unless param_key.nil?
-						request_url += ".#{format}" unless format.nil?
+						#request_url += ".#{format}" unless format.nil?
 						return request_url
 					end					
 
@@ -137,8 +137,16 @@ module EApiClient
 
 					private
 
-					def do_save_request( request_url, request_method, options = {} )
-						result = EApiClient::ActiveClient::JSON::Pluggable.do_request( request_url, self.to_request_object, request_method )
+					def eval_method( request_method )
+						if request_method.nil?
+							return self.id.nil? ? RequestMethods::POST : RequestMethods::PUT
+						else
+							return request_method
+						end						
+					end
+
+					def do_save_request( request_url, request_method, options = {}, format )
+						result = EApiClient::ActiveClient::JSON::Pluggable.do_request( request_url, self.to_request_object, request_method, format )
 						save_success = false
 
 						case result.code
@@ -165,7 +173,7 @@ module EApiClient
 					end
 
 					def set_errors_from_response(json_obj)
-						json_obj.each do |key, arr_val|
+						json_obj[:errors].each do |key, arr_val|
 							arr_val.each do | err_desc |
 								errors.add(key, err_desc)
 							end
