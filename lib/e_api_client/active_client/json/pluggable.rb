@@ -59,6 +59,7 @@ module EApiClient
 					include ActiveModel::Validations
 					include EApiClient::ActiveClient::JSON::Configurable
 					include EApiClient::ActiveClient::JSON::Activable
+					include EApiClient::ActiveClient::JSON::DataConvertable
 
 					def self.api_attr_accessor(local_attribute, remote_attribute)
 						current_attr = MappedAttribute.new
@@ -142,6 +143,20 @@ module EApiClient
 							return self.id.nil? ? RequestMethods::POST : RequestMethods::PUT
 						else
 							return request_method
+						end						
+					end
+
+					def assert_save_or_create(&block)
+						if self.id.nil?
+							run_callbacks :create do
+								run_callbacks :save do
+									block.call
+								end
+							end
+						else
+							run_callbacks :save do
+								block.call
+							end
 						end						
 					end
 

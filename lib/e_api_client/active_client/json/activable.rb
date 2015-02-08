@@ -10,6 +10,13 @@ module EApiClient
 				#Class Level Methods and variables
 				included do
 
+					extend ActiveModel::Callbacks
+
+					define_model_callbacks :create, only: [:after, :before]
+					define_model_callbacks :update, only: [:after, :before]
+					define_model_callbacks :save, only: [:after, :before]
+					define_model_callbacks :destroy, only: [:after, :before]
+
 					# Class::where
 					# Generate an array of this class instances by consuming the service
 					# - parameters: request parameters
@@ -150,11 +157,14 @@ module EApiClient
 					# - format: url format
 					# return [Null]
 					def destroy!( request_url, request_method = RequestMethods::DELETE, format = 'json' )
-						Pluggable.do_request( request_url, { id: self.id }, request_method, format )
+						run_callbacks :destroy do
+							Pluggable.do_request( request_url, { id: self.id }, request_method, format )
+						end
 					end
 
 					# Class#update
 					# Updates object in the database
+					# Url generation not efficient, but moved here due to DRY Principles
 					# - values: hash with values
 					# - options: save options
 					# - resource: path of the service
@@ -162,11 +172,8 @@ module EApiClient
 					# - format: url format
 					# return [Boolean]
 					def update(values = {}, options = {}, resource = nil, request_method = RequestMethods::PUT, format = 'json')
-						self.set_attributes_by_hash values
-						assert_validation( options ) do
-							request_url = self.class.build_request_url( resource, self.id ) 
-							do_save_request( request_url, request_method, options, format )
-						end
+						request_url = self.class.build_request_url( resource, self.id ) 
+						self.update! request_url, values, options, request_method, format
 					end
 
 					# Class#update!
@@ -179,22 +186,22 @@ module EApiClient
 					# return [Boolean]
 					def update!(request_url, values = {}, options = {}, request_method = RequestMethods::PUT, format = 'json')
 						self.set_attributes_by_hash values
-						self.save!( request_url, options, request_method, format )
+						run_callbacks :update do
+							self.save!( request_url, options, request_method, format )
+						end
 					end
 
 					# Class#save
 					# Saves object to the database
+					# Url generation not efficient, but moved here due to DRY Principles
 					# - options: save options
 					# - resource: path of the service
 					# - request_method: Enum to get GET, POST, PUT, DELETE					
 					# - format: url format
 					# return [Boolean]
 					def save(options = {}, resource = nil, request_method = nil, format = 'json')
-						assert_validation( options ) do
-							request_url = self.class.build_request_url( resource, self.id ) 
-							rmeth = eval_method( request_method )
-							do_save_request( request_url, rmeth, options, format )
-						end
+						request_url = self.class.build_request_url( resource, self.id ) 
+						self.save! request_url, options, request_method, format
 					end
 
 					# Class#save!
@@ -207,7 +214,10 @@ module EApiClient
 					def save!(request_url, options = {}, request_method = nil, format = 'json')
 						assert_validation( options ) do
 							rmeth = eval_method( request_method )
-							do_save_request( request_url, rmeth, options, format )
+							assert_save_or_create do
+								do_save_request( request_url, rmeth, options, format )
+							end
+
 						end
 					end
 

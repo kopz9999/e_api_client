@@ -3,6 +3,8 @@ require 'test_helper'
 class Api::ItemTest < ActiveSupport::TestCase
 
   test "select" do
+    p "TEST SELECT"
+
   	items = Api::Item.select
   	p "Receiving:"
   	p items.inspect
@@ -10,6 +12,7 @@ class Api::ItemTest < ActiveSupport::TestCase
   end
 
   test "create" do
+    p "TEST CREATE"
 
   	item = Api::Item.create( name: "Item #{ Time.now.to_i }", quantity: 23.2 )
 
@@ -21,6 +24,8 @@ class Api::ItemTest < ActiveSupport::TestCase
   end
 
   test "update" do
+    p "TEST UPDATE"
+
   	name_to_update = "Item Updated - #{ Time.now.to_i }"
   	item = Api::Item.create( name: "Item 2", quantity: 23.2 )
   	created_id = item.id
@@ -40,6 +45,8 @@ class Api::ItemTest < ActiveSupport::TestCase
   end
 
   test "save" do
+    p "TEST SAVE"
+
   	name_to_save = "Item Saved - #{ Time.now.to_i }"
   	item = Api::Item.create( name: "Item 3", quantity: 23.2 )
   	created_id = item.id
@@ -61,6 +68,8 @@ class Api::ItemTest < ActiveSupport::TestCase
   end
 
   test "find" do
+    p "TEST FIND"
+
   	item = Api::Item.create( name: "Item #{ Time.now.to_i }", quantity: 23.2 )
 
   	p "Created: "
@@ -79,6 +88,8 @@ class Api::ItemTest < ActiveSupport::TestCase
   end
 
   test "destroy" do
+    p "TEST DESTROY"
+
   	item = Api::Item.create( name: "Item #{ Time.now.to_i }", quantity: 23.2 )
 
   	p "Created: "
