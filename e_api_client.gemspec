@@ -1,3 +1,5 @@
+#Copyright 2015 Kyoto Kopz kopz9999@gmail.com
+
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
