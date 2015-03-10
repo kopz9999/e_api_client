@@ -2,11 +2,6 @@ require 'test_helper'
 
 class Api::ItemTest < ActiveSupport::TestCase
 
-  test "select" do
-    items = Api::Item.select
-    assert_kind_of Array, items
-  end
-
   test "create" do
     item = Api::Item.create( name: "Item #{ Time.now.to_i }", quantity: 23.2 )
     assert_kind_of Integer, item.id

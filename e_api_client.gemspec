@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", '~> 4.1', '>= 4.1.0'
   s.add_dependency 'rest-client', "1.7.2"
-
+  
+  s.add_development_dependency "pry", "0.10.1"
+  s.add_development_dependency "pry-nav", "0.2.4"
   s.add_development_dependency "sqlite3", "1.3.10"
 end

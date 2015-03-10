@@ -9,7 +9,7 @@ module EApiClient
           attr_accessor :pluggable_class
 
           #Override if you want to manage responses in another way
-          def response_member(string_json_object)
+          def response_member(string_json_object, obj)
             raise NotImplementedError
           end
 

@@ -4,22 +4,21 @@ module EApiClient
 
       module Middleware
 
-        class RequestHandler
+        class ResponseHandler
 
           include EApiClient::ActiveClient::JSON::Middleware::Responsable
 
-          def response_member(string_json_object)
+          def response_member(string_json_object, obj)
             unless string_json_object.nil?
               json_hash = Object::JSON.parse(string_json_object, symbolize_names: true)
-              obj = self.pluggable_class.instance_by_json( json_hash )
-              json_hash[:errors].each do |key, arr_val|
-                arr_val.each do | err_desc |
-                  obj.errors.add(key, err_desc)
+              obj.set_attributes_by_json json_hash
+              unless json_hash[:errors].blank?
+                json_hash[:errors].each do |key, arr_val|
+                  arr_val.each do | err_desc |
+                    obj.errors.add(key, err_desc)
+                  end
                 end
               end
-              return obj
-            else
-              return nil
             end
           end
 

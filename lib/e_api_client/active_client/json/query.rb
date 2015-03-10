@@ -26,7 +26,7 @@ module EApiClient
         end
 
         def initialize( pluggable_class_val, url_val, query_parameters_val = {}, request_method_val = RequestMethods::GET, format_val = 'json' )
-          pluggable_class = pluggable_class_val
+          self.pluggable_class = pluggable_class_val
           self.url = url_val
           query_parameters.merge!( query_parameters_val )
           self.request_method = request_method_val
@@ -39,8 +39,8 @@ module EApiClient
         end
 
         def fetch
-          raw_results = self.pluggable_class.request_handler.request_collection resource, query_parameters, request_method, format
-          self.pluggable_class.response_handler.response_collection raw_results, self.results
+          raw_results = pluggable_class.request_handler.request_collection self.url, query_parameters, request_method, format
+          pluggable_class.response_handler.response_collection raw_results, self.results
           self.loaded = true
         end
 

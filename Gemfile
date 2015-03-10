@@ -14,5 +14,6 @@ gemspec
 # gem 'byebug', group: [:development, :test]
 gem 'e_api_server', :path => '/Users/kopz/Rails/e_api_server'
 
-gem 'rakeup', '1.2.0'
+#gem 'rakeup', '1.2.0'
 gem 'jbuilder', '~> 2.0'
+gem 'responders', '~> 2.0'

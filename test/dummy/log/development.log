@@ -1,0 +1,772 @@
+
+
+Started GET "/items" for ::1 at 2015-03-10 03:50:03 -0400
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.0) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.0) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/kopz/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/kopz/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/kopz/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.2ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (27.3ms)
+
+
+Started GET "/items" for ::1 at 2015-03-10 03:54:09 -0400
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.0) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.0) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.0) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/kopz/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/kopz/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/kopz/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (48.8ms)
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateItems (20150123182526)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "quantity" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150123182526"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Migrating to CreateProducts (20150129024602)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+DEPRECATION WARNING: `#timestamp` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in change at /Users/kopz/Rails/e_api_client/test/dummy/db/migrate/20150129024602_create_products.rb:7)
+  [1m[35m (0.4ms)[0m  CREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" varchar, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150129024602"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/items" for ::1 at 2015-03-10 03:54:40 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ItemsController#index as JSON
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+Completed 200 OK in 16ms (Views: 4.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/products" for ::1 at 2015-03-10 03:54:41 -0400
+Processing by ProductsController#index as JSON
+  [1m[36mProduct Load (0.3ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.json.jbuilder (21.7ms)
+Completed 200 OK in 31ms (Views: 28.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 03:56:28 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"api/item"=>{"id"=>"", "name"=>"Item 1425974188", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Completed 400 Bad Request in 1ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: item):
+  app/controllers/items_controller.rb:8:in `get_resource_params'
+
+
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.3ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (23.3ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 03:57:30 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"api/item"=>{"id"=>"", "name"=>"Item 1425974250", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Completed 400 Bad Request in 1ms
+
+ActionController::ParameterMissing (param is missing or the value is empty: item):
+  app/controllers/items_controller.rb:8:in `get_resource_params'
+
+
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (7.3ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.7ms)
+  Rendered /Users/kopz/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (77.7ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 03:59:39 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974379", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (18.3ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425974379"], ["quantity", 23], ["created_at", "2015-03-10 07:59:39.489670"], ["updated_at", "2015-03-10 07:59:39.489670"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 201 Created in 36ms (Views: 0.7ms | ActiveRecord: 20.5ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:00:40 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974440", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425974440"], ["quantity", 23], ["created_at", "2015-03-10 08:00:40.064056"], ["updated_at", "2015-03-10 08:00:40.064056"]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 7ms (Views: 0.6ms | ActiveRecord: 3.0ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:03:33 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974613", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425974613"], ["quantity", 23], ["created_at", "2015-03-10 08:03:33.089533"], ["updated_at", "2015-03-10 08:03:33.089533"]]
+  [1m[35m (2.6ms)[0m  commit transaction
+Completed 201 Created in 8ms (Views: 0.4ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:05:33 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974733", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425974733"], ["quantity", 23], ["created_at", "2015-03-10 08:05:33.232470"], ["updated_at", "2015-03-10 08:05:33.232470"]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 15ms (Views: 0.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/items" for ::1 at 2015-03-10 04:05:44 -0400
+Processing by ItemsController#index as JSON
+  [1m[35mItem Load (0.3ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+Completed 200 OK in 14ms (Views: 3.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/products" for ::1 at 2015-03-10 04:05:44 -0400
+Processing by ProductsController#index as JSON
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.json.jbuilder (1.4ms)
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/items" for ::1 at 2015-03-10 04:06:08 -0400
+Processing by ItemsController#index as JSON
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" LIMIT 25 OFFSET 0
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/products" for ::1 at 2015-03-10 04:06:08 -0400
+Processing by ProductsController#index as JSON
+  [1m[36mProduct Load (0.2ms)[0m  [1mSELECT "products".* FROM "products"[0m
+  Rendered products/index.json.jbuilder (0.8ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:06:52 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 3", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 3"], ["quantity", 23], ["created_at", "2015-03-10 08:06:52.480581"], ["updated_at", "2015-03-10 08:06:52.480581"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Completed 201 Created in 8ms (Views: 0.5ms | ActiveRecord: 2.5ms)
+
+
+Started PUT "/items/5" for ::1 at 2015-03-10 04:06:52 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"5", "name"=>"Item Saved - 1425974812", "quantity"=>"500", "created_at"=>"2015-03-10T08:06:52+00:00"}, "id"=>"5"}
+Can't verify CSRF token authenticity
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 5]]
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "items" SET "name" = ?, "quantity" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["name", "Item Saved - 1425974812"], ["quantity", 500], ["updated_at", "2015-03-10 08:06:52.553751"], ["id", 5]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Completed 200 OK in 40ms (Views: 0.7ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:06:52 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974812", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425974812"], ["quantity", 23], ["created_at", "2015-03-10 08:06:52.596358"], ["updated_at", "2015-03-10 08:06:52.596358"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:06:52 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974812", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425974812"], ["quantity", 23], ["created_at", "2015-03-10 08:06:52.640697"], ["updated_at", "2015-03-10 08:06:52.640697"]]
+  [1m[35m (3.1ms)[0m  commit transaction
+Completed 201 Created in 14ms (Views: 5.1ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:06:52 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 2", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 2"], ["quantity", 23], ["created_at", "2015-03-10 08:06:52.692708"], ["updated_at", "2015-03-10 08:06:52.692708"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/items/8" for ::1 at 2015-03-10 04:06:52 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"8", "name"=>"Item Updated - 1425974812", "quantity"=>"23", "created_at"=>"2015-03-10T08:06:52+00:00"}, "id"=>"8"}
+Can't verify CSRF token authenticity
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 8]]
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "items" SET "name" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["name", "Item Updated - 1425974812"], ["updated_at", "2015-03-10 08:06:52.735196"], ["id", 8]]
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:06:52 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974812", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425974812"], ["quantity", 23], ["created_at", "2015-03-10 08:06:52.779745"], ["updated_at", "2015-03-10 08:06:52.779745"]]
+  [1m[35m (2.0ms)[0m  commit transaction
+Completed 201 Created in 6ms (Views: 0.5ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/items/9" for ::1 at 2015-03-10 04:06:52 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"9"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 9]]
+  Rendered items/show.json.jbuilder (1.2ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:09:18 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974958", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425974958"], ["quantity", 23], ["created_at", "2015-03-10 08:09:18.290098"], ["updated_at", "2015-03-10 08:09:18.290098"]]
+  [1m[35m (3.3ms)[0m  commit transaction
+Completed 201 Created in 11ms (Views: 0.7ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/items/10" for ::1 at 2015-03-10 04:09:18 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"10"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 10]]
+  Rendered items/show.json.jbuilder (0.5ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:09:18 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974958", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425974958"], ["quantity", 23], ["created_at", "2015-03-10 08:09:18.362780"], ["updated_at", "2015-03-10 08:09:18.362780"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:09:18 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 3", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 3"], ["quantity", 23], ["created_at", "2015-03-10 08:09:18.398554"], ["updated_at", "2015-03-10 08:09:18.398554"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/items/12" for ::1 at 2015-03-10 04:09:18 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"12", "name"=>"Item Saved - 1425974958", "quantity"=>"500", "created_at"=>"2015-03-10T08:09:18+00:00"}, "id"=>"12"}
+Can't verify CSRF token authenticity
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 12]]
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "items" SET "name" = ?, "quantity" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["name", "Item Saved - 1425974958"], ["quantity", 500], ["updated_at", "2015-03-10 08:09:18.436434"], ["id", 12]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:09:18 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425974958", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425974958"], ["quantity", 23], ["created_at", "2015-03-10 08:09:18.472379"], ["updated_at", "2015-03-10 08:09:18.472379"]]
+  [1m[35m (1.2ms)[0m  commit transaction
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:09:18 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 2", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 2"], ["quantity", 23], ["created_at", "2015-03-10 08:09:18.570843"], ["updated_at", "2015-03-10 08:09:18.570843"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started PUT "/items/14" for ::1 at 2015-03-10 04:09:18 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"14", "name"=>"Item Updated - 1425974958", "quantity"=>"23", "created_at"=>"2015-03-10T08:09:18+00:00"}, "id"=>"14"}
+Can't verify CSRF token authenticity
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 14]]
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "items" SET "name" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["name", "Item Updated - 1425974958"], ["updated_at", "2015-03-10 08:09:18.606064"], ["id", 14]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:16:10 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975369", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425975369"], ["quantity", 23], ["created_at", "2015-03-10 08:16:10.035301"], ["updated_at", "2015-03-10 08:16:10.035301"]]
+  [1m[35m (4.1ms)[0m  commit transaction
+Completed 201 Created in 9ms (Views: 0.4ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:16:10 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975370", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425975370"], ["quantity", 23], ["created_at", "2015-03-10 08:16:10.074766"], ["updated_at", "2015-03-10 08:16:10.074766"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/items/16" for ::1 at 2015-03-10 04:16:10 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"16"}
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 16]]
+  Rendered items/show.json.jbuilder (0.4ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:16:10 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 2", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 2"], ["quantity", 23], ["created_at", "2015-03-10 08:16:10.139690"], ["updated_at", "2015-03-10 08:16:10.139690"]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 1.8ms)
+
+
+Started PUT "/items/17" for ::1 at 2015-03-10 04:16:10 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"17", "name"=>"Item Updated - 1425975370", "quantity"=>"23", "created_at"=>"2015-03-10T08:16:10+00:00"}, "id"=>"17"}
+Can't verify CSRF token authenticity
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 17]]
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "items" SET "name" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["name", "Item Updated - 1425975370"], ["updated_at", "2015-03-10 08:16:10.176392"], ["id", 17]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:16:10 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 3", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 3"], ["quantity", 23], ["created_at", "2015-03-10 08:16:10.210880"], ["updated_at", "2015-03-10 08:16:10.210880"]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/items/18" for ::1 at 2015-03-10 04:16:10 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"18", "name"=>"Item Saved - 1425975370", "quantity"=>"500", "created_at"=>"2015-03-10T08:16:10+00:00"}, "id"=>"18"}
+Can't verify CSRF token authenticity
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 18]]
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "items" SET "name" = ?, "quantity" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["name", "Item Saved - 1425975370"], ["quantity", 500], ["updated_at", "2015-03-10 08:16:10.244489"], ["id", 18]]
+  [1m[35m (2.1ms)[0m  commit transaction
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:16:10 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975370", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425975370"], ["quantity", 23], ["created_at", "2015-03-10 08:16:10.284871"], ["updated_at", "2015-03-10 08:16:10.284871"]]
+  [1m[36m (1.2ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:13 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975613", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425975613"], ["quantity", 23], ["created_at", "2015-03-10 08:20:13.606579"], ["updated_at", "2015-03-10 08:20:13.606579"]]
+  [1m[35m (2.8ms)[0m  commit transaction
+Completed 201 Created in 8ms (Views: 0.4ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/items/20" for ::1 at 2015-03-10 04:20:13 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"20"}
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 20]]
+  Rendered items/show.json.jbuilder (0.4ms)
+Completed 200 OK in 4ms (Views: 2.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:13 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 3", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 3"], ["quantity", 23], ["created_at", "2015-03-10 08:20:13.680158"], ["updated_at", "2015-03-10 08:20:13.680158"]]
+  [1m[35m (1.7ms)[0m  commit transaction
+Completed 201 Created in 6ms (Views: 0.5ms | ActiveRecord: 2.2ms)
+
+
+Started PUT "/items/21" for ::1 at 2015-03-10 04:20:13 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"21", "name"=>"Item Saved - 1425975613", "quantity"=>"500", "created_at"=>"2015-03-10T08:20:13+00:00"}, "id"=>"21"}
+Can't verify CSRF token authenticity
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 21]]
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (1.9ms)[0m  [1mUPDATE "items" SET "name" = ?, "quantity" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["name", "Item Saved - 1425975613"], ["quantity", 500], ["updated_at", "2015-03-10 08:20:13.724229"], ["id", 21]]
+  [1m[35m (2.3ms)[0m  commit transaction
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 4.5ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:13 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975613", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425975613"], ["quantity", 23], ["created_at", "2015-03-10 08:20:13.768240"], ["updated_at", "2015-03-10 08:20:13.768240"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 6ms (Views: 0.3ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:13 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975613", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425975613"], ["quantity", 23], ["created_at", "2015-03-10 08:20:13.804128"], ["updated_at", "2015-03-10 08:20:13.804128"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:13 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 2", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 2"], ["quantity", 23], ["created_at", "2015-03-10 08:20:13.839261"], ["updated_at", "2015-03-10 08:20:13.839261"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started PUT "/items/24" for ::1 at 2015-03-10 04:20:13 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"24", "name"=>"Item Updated - 1425975613", "quantity"=>"23", "created_at"=>"2015-03-10T08:20:13+00:00"}, "id"=>"24"}
+Can't verify CSRF token authenticity
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 24]]
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "items" SET "name" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["name", "Item Updated - 1425975613"], ["updated_at", "2015-03-10 08:20:13.875228"], ["id", 24]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:27 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975627", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425975627"], ["quantity", 23], ["created_at", "2015-03-10 08:20:27.942749"], ["updated_at", "2015-03-10 08:20:27.942749"]]
+  [1m[35m (2.9ms)[0m  commit transaction
+Completed 201 Created in 7ms (Views: 0.6ms | ActiveRecord: 3.4ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:27 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 3", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 3"], ["quantity", 23], ["created_at", "2015-03-10 08:20:27.981862"], ["updated_at", "2015-03-10 08:20:27.981862"]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 2.1ms)
+
+
+Started PUT "/items/26" for ::1 at 2015-03-10 04:20:28 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"26", "name"=>"Item Saved - 1425975627", "quantity"=>"500", "created_at"=>"2015-03-10T08:20:27+00:00"}, "id"=>"26"}
+Can't verify CSRF token authenticity
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 26]]
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "items" SET "name" = ?, "quantity" = ?, "updated_at" = ? WHERE "items"."id" = ?  [["name", "Item Saved - 1425975627"], ["quantity", 500], ["updated_at", "2015-03-10 08:20:28.020821"], ["id", 26]]
+  [1m[36m (3.1ms)[0m  [1mcommit transaction[0m
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 3.7ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:28 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 2", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 2"], ["quantity", 23], ["created_at", "2015-03-10 08:20:28.057057"], ["updated_at", "2015-03-10 08:20:28.057057"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+Completed 201 Created in 5ms (Views: 0.3ms | ActiveRecord: 1.9ms)
+
+
+Started PUT "/items/27" for ::1 at 2015-03-10 04:20:28 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"27", "name"=>"Item Updated - 1425975628", "quantity"=>"23", "created_at"=>"2015-03-10T08:20:28+00:00"}, "id"=>"27"}
+Can't verify CSRF token authenticity
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 27]]
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "items" SET "name" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["name", "Item Updated - 1425975628"], ["updated_at", "2015-03-10 08:20:28.092443"], ["id", 27]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:28 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975628", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425975628"], ["quantity", 23], ["created_at", "2015-03-10 08:20:28.127791"], ["updated_at", "2015-03-10 08:20:28.127791"]]
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:20:28 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975628", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 1425975628"], ["quantity", 23], ["created_at", "2015-03-10 08:20:28.168186"], ["updated_at", "2015-03-10 08:20:28.168186"]]
+  [1m[35m (1.9ms)[0m  commit transaction
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/items/29" for ::1 at 2015-03-10 04:20:28 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"29"}
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 29]]
+  Rendered items/show.json.jbuilder (0.4ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:21:23 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 2", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 2"], ["quantity", 23], ["created_at", "2015-03-10 08:21:23.517844"], ["updated_at", "2015-03-10 08:21:23.517844"]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Completed 201 Created in 6ms (Views: 0.5ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/items/30" for ::1 at 2015-03-10 04:21:23 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"30", "name"=>"Item Updated - 1425975683", "quantity"=>"23", "created_at"=>"2015-03-10T08:21:23+00:00"}, "id"=>"30"}
+Can't verify CSRF token authenticity
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 30]]
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "items" SET "name" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["name", "Item Updated - 1425975683"], ["updated_at", "2015-03-10 08:21:23.564727"], ["id", 30]]
+  [1m[35m (1.6ms)[0m  commit transaction
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:21:23 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975683", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425975683"], ["quantity", 23], ["created_at", "2015-03-10 08:21:23.614710"], ["updated_at", "2015-03-10 08:21:23.614710"]]
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/items/31" for ::1 at 2015-03-10 04:21:23 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"31"}
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 31]]
+  Rendered items/show.json.jbuilder (0.5ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:21:23 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975683", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425975683"], ["quantity", 23], ["created_at", "2015-03-10 08:21:23.708197"], ["updated_at", "2015-03-10 08:21:23.708197"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 11ms (Views: 0.6ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:21:23 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 3", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Item 3"], ["quantity", 23], ["created_at", "2015-03-10 08:21:23.749978"], ["updated_at", "2015-03-10 08:21:23.749978"]]
+  [1m[35m (2.4ms)[0m  commit transaction
+Completed 201 Created in 8ms (Views: 0.6ms | ActiveRecord: 3.0ms)
+
+
+Started PUT "/items/33" for ::1 at 2015-03-10 04:21:23 -0400
+Processing by ItemsController#update as JSON
+  Parameters: {"item"=>{"id"=>"33", "name"=>"Item Saved - 1425975683", "quantity"=>"500", "created_at"=>"2015-03-10T08:21:23+00:00"}, "id"=>"33"}
+Can't verify CSRF token authenticity
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1[0m  [["id", 33]]
+Unpermitted parameter: created_at
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "items" SET "name" = ?, "quantity" = ?, "updated_at" = ? WHERE "items"."id" = ?[0m  [["name", "Item Saved - 1425975683"], ["quantity", 500], ["updated_at", "2015-03-10 08:21:23.831967"], ["id", 33]]
+  [1m[35m (40.6ms)[0m  commit transaction
+Completed 200 OK in 50ms (Views: 1.1ms | ActiveRecord: 41.6ms)
+
+
+Started POST "/items" for ::1 at 2015-03-10 04:21:23 -0400
+Processing by ItemsController#create as JSON
+  Parameters: {"item"=>{"id"=>"", "name"=>"Item 1425975683", "quantity"=>"23.2", "created_at"=>""}}
+Can't verify CSRF token authenticity
+Unpermitted parameter: created_at
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "items" ("name", "quantity", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Item 1425975683"], ["quantity", 23], ["created_at", "2015-03-10 08:21:23.934622"], ["updated_at", "2015-03-10 08:21:23.934622"]]
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+Completed 201 Created in 11ms (Views: 0.9ms | ActiveRecord: 2.4ms)
+
+
+Started DELETE "/items/34?id=34" for ::1 at 2015-03-10 04:21:23 -0400
+Processing by ItemsController#destroy as JSON
+  Parameters: {"id"=>"34"}
+Can't verify CSRF token authenticity
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 34]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "items" WHERE "items"."id" = ?  [["id", 34]]
+  [1m[36m (1.7ms)[0m  [1mcommit transaction[0m
+Completed 204 No Content in 5ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/items/34" for ::1 at 2015-03-10 04:21:24 -0400
+Processing by ItemsController#show as JSON
+  Parameters: {"id"=>"34"}
+  [1m[35mItem Load (0.2ms)[0m  SELECT  "items".* FROM "items" WHERE "items"."id" = ? LIMIT 1  [["id", 34]]
+Completed 204 No Content in 1ms (ActiveRecord: 0.2ms)

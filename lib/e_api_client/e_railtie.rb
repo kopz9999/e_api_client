@@ -12,7 +12,7 @@ module EApiClient
 			if File.exist? configuration_file
 				config = YAML.load_file(configuration_file)
 				endpoint = config[ Rails.env ][ "endpoint" ]
-				EApiClient::ActiveClient::JSON::Pluggable.global_base_url = endpoint
+				EApiClient::ActiveClient::JSON::Configurable.global_base_url = endpoint
 			else
 				EApiClient::Util.print "Endpoints should be provided on #{configuration_file}\nThey have to be provided manually"
 			end

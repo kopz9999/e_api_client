@@ -4,6 +4,16 @@ module EApiClient
 
 			module Configurable
 
+				#Global configuration
+
+				def self.global_base_url
+					@@global_base_url
+				end
+
+				def self.global_base_url=(global_base_url)
+					@@global_base_url = global_base_url
+				end
+
 				module ClassMethods
 
 					# Returns a URL based on configuration
@@ -20,16 +30,8 @@ module EApiClient
 						return request_url
 					end
 
-					def global_base_url
-						@@global_base_url
-					end
-
-					def global_base_url=(global_base_url)
-						@@global_base_url = global_base_url
-					end
-
 					def get_base_url
-						@base_url ||= global_base_url
+						@base_url ||= EApiClient::ActiveClient::JSON::Configurable.global_base_url
 					end
 
 					def base_url(val)
@@ -44,11 +46,15 @@ module EApiClient
 						@model_resources = val
 					end
 
-					def request_element
+					def get_request_element
 						@request_element ||= self.name.downcase.underscore.to_sym
 					end
 
-					def self.api_attributes
+					def request_element(val)
+						@request_element = val
+					end					
+
+					def api_attributes
 						@api_attributes ||= []
 					end
 
