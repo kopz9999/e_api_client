@@ -4,95 +4,60 @@ module EApiClient
 
 			module Pluggable
 
-				extend ActiveSupport::Concern
+				module ClassMethods
 
-				#Module level static Logic Methods
-
-				def self.global_base_url
-					@@global_base_url
-				end
-
-				def self.global_base_url=(global_base_url)
-					@@global_base_url = global_base_url
-				end
-
-				def self.do_request(url, parameters, request_method, format)
-					default_handler = lambda{|response, request, result| response }
-					case request_method 
-						when RequestMethods::GET
-							result = RestClient.get url, { params: parameters, :accept => format }, &default_handler
-						when RequestMethods::POST
-							result = RestClient.post url, parameters, { :accept => format }, &default_handler
-						when RequestMethods::PUT
-							result = RestClient.put url, parameters, { :accept => format }, &default_handler
-						when RequestMethods::DELETE
-							result = RestClient.delete url, { params: parameters, :accept => format }, &default_handler
+					def request_handler
+						@request_handler ||= EApiClient::ActiveClient::JSON::Middleware::RequestHandler.new
 					end
-					result
-				end
 
-				def self.get_json(url, parameters, request_method, format)
-					result = do_request( url, parameters, request_method, format )					
-					if result.code < StatusCodes::BadRequest
-						if result.code == StatusCodes::NoContent
-							return nil
-						else
-							return Object::JSON.parse(result.to_s, symbolize_names: true)
-						end
-					else
-						return nil
+					def response_handler
+						@response_handler ||= EApiClient::ActiveClient::JSON::Middleware::ResponseHandler.new( self )
 					end
-				end
 
-				# Returns filtered JSON
-				# return [Hash]
-				def self.verify_json( key, json_obj )
-					result = json_obj
-					result = json_obj[ key ] unless key.nil?
-					result
-				end
-
-				#Class Level Methods and variables
-				included do
-
-					#Allow client side validations
-					include ActiveModel::Validations
-					include EApiClient::ActiveClient::JSON::Configurable
-					include EApiClient::ActiveClient::JSON::Activable
-					include EApiClient::ActiveClient::JSON::DataConvertable
-
-					def self.api_attr_accessor(local_attribute, remote_attribute)
+					def api_attr_accessor(local_attribute, remote_attribute, data_parser_class = nil)
 						current_attr = MappedAttribute.new
 
-						self.class_eval("def #{local_attribute};@#{local_attribute};end")
-						self.class_eval("def #{local_attribute}=(val);@#{local_attribute}=val;end")
-						#self.attr_accessor local_attribute
+						define_attribute current_attr
+						set_data_parser(current_attr, data_parser_class) unless data_parser_class.nil?
+
 						current_attr.local_identifier = local_attribute
 						current_attr.remote_identifier = remote_attribute
 						self.api_attributes << current_attr
 					end
-
+					
 					# Generates object with the values given from a json
 					# return [Object]
-					def self.instance_by_json(json_obj = {})
+					def instance_by_json(json_obj = {})
 						obj = self.new 
 						obj.set_attributes_by_json( json_obj )
 						return obj
 					end
 
-					# Returns a URL based on configuration
-					# return [String]
-					def self.build_request_url( resource, param_key = nil )
-						request_url = self.get_base_url
-						if resource.nil?
-							request_url += "/#{self.get_model_resources}"
-						else
-							request_url += "/#{resource}"
+					private
+
+					def define_attribute( mapped_attribute )
+						self.class_eval do
+							attr_accessor mapped_attribute.local_identifier.to_sym
 						end
-						request_url += "/#{param_key}" unless param_key.nil?
-						#request_url += ".#{format}" unless format.nil?
-						return request_url
-					end					
+					end
+
+					def set_data_parser( mapped_attribute, data_parser_class )
+						data_parser = data_parser_class.new
+            alias_name = "#{mapped_attribute.local_identifier}_s".to_sym
+
+            self.class_eval do
+              alias_method(alias_name, mapped_attribute.local_identifier)
+            end
+
+            define_method( mapped_attribute.local_identifier ) do
+            	return data_parser.transform self.send( alias_name )
+            end
+
+					end
+
+				end
+
+				module InstanceMethods
 
 					# Sets attributes from a Hash object on constructor
 					# return [Nil]
@@ -124,15 +89,10 @@ module EApiClient
 					def to_request_object
 						result = {}
 						request_obj = {}
-						request_single_name = self.class.get_model_request_single_name
 						self.class.api_attributes.each do |api_attr|
 							request_obj[ api_attr.local_identifier ] = self.send( api_attr.local_identifier )
 						end
-						if request_single_name.nil?
-							result = request_obj					
-						else
-							result[ request_single_name ] = request_obj
-						end
+						result[ self.class.request_element ] = request_obj
 						return result
 					end
 
@@ -143,7 +103,7 @@ module EApiClient
 							return self.id.nil? ? RequestMethods::POST : RequestMethods::PUT
 						else
 							return request_method
-						end						
+						end
 					end
 
 					def assert_save_or_create(&block)
@@ -161,38 +121,13 @@ module EApiClient
 					end
 
 					def do_save_request( request_url, request_method, options = {}, format )
-						result = EApiClient::ActiveClient::JSON::Pluggable.do_request( request_url, self.to_request_object, request_method, format )
+						result = self.request_handler.request_member( request_url, self.to_request_object, request_method, format )
 						save_success = false
-
 						case result.code
-						when StatusCodes::Created, StatusCodes::Ok
-							save_success = true
-							eval_save_success result, options
-						when StatusCodes::UnprocessableEntity
-							json_obj = Object::JSON.parse(result.to_s, symbolize_names: true)
-							set_errors_from_response json_obj
-						else
-							EApiClient::Util.print "Error on request. Unexpected response"
+							when StatusCodes::Created, StatusCodes::Ok then save_success = true
 						end
+						self.response_handler.response_member result
 						return save_success
-					end
-
-					def eval_save_success( result, options = {} )
-						json_obj = Object::JSON.parse(result.to_s, symbolize_names: true)
-						values_hash = EApiClient::ActiveClient::JSON::Pluggable.verify_json( self.class.get_model_response_single_name, json_obj )
-						if options[:set_by_response]
-							self.id = values_hash[ :id ]
-						else
-							self.set_attributes_by_json values_hash
-						end
-					end
-
-					def set_errors_from_response(json_obj)
-						json_obj[:errors].each do |key, arr_val|
-							arr_val.each do | err_desc |
-								errors.add(key, err_desc)
-							end
-						end
 					end
 
 					def assert_validation(options = {}, &block)
@@ -207,6 +142,22 @@ module EApiClient
 							return save_result
 						end
 					end
+
+				end
+
+				extend ActiveSupport::Concern
+
+				#Class Level Methods and variables
+				included do
+
+					#Allow client side validations
+					include ActiveModel::Validations
+					include EApiClient::ActiveClient::JSON::Configurable
+					include EApiClient::ActiveClient::JSON::DataConvertable
+
+					#Functionality methods
+					extend ClassMethods
+					include InstanceMethods
 
 				end
 

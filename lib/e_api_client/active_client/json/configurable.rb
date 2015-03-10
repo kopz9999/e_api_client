@@ -4,68 +4,62 @@ module EApiClient
 
 			module Configurable
 
-				extend ActiveSupport::Concern
+				module ClassMethods
 
-				#Class Level Methods and variables
-				included do
-
-					def self.get_base_url
-						@base_url ||= Pluggable.global_base_url
+					# Returns a URL based on configuration
+					# return [String]
+					def build_request_url( resource, param_key = nil )
+						request_url = self.get_base_url
+						if resource.nil?
+							request_url += "/#{self.get_model_resources}"
+						else
+							request_url += "/#{resource}"
+						end
+						request_url += "/#{param_key}" unless param_key.nil?
+						#request_url += ".#{format}" unless format.nil?
+						return request_url
 					end
 
-					def self.base_url(val)
+					def global_base_url
+						@@global_base_url
+					end
+
+					def global_base_url=(global_base_url)
+						@@global_base_url = global_base_url
+					end
+
+					def get_base_url
+						@base_url ||= global_base_url
+					end
+
+					def base_url(val)
 						@base_url = val
 					end
 
-					def self.get_model_resources
+					def get_model_resources
 						@model_resources ||= self.name.downcase.underscore.pluralize
 					end
 
-					def self.model_resources(val)
+					def model_resources(val)
 						@model_resources = val
 					end
 
-					def self.get_model_response_single_name
-						@model_response_single_name
-					end
-
-					def self.model_response_single_name(val)
-						@model_response_single_name = val
-					end
-
-					def self.get_model_request_single_name
-						@model_request_single_name
-					end
-
-					def self.model_request_single_name(val)
-						@model_request_single_name = val
-					end					
-
-					def self.get_model_response_plural_name
-						@model_response_plural_name
-					end
-
-					def self.model_response_plural_name( val )
-						@model_response_plural_name = val
+					def request_element
+						@request_element ||= self.name.downcase.underscore.to_sym
 					end
 
 					def self.api_attributes
 						@api_attributes ||= []
 					end
 
-					def self.set_json_identifiers_by_class
-						model_request_single_name self.name.downcase.underscore.to_sym
-						model_response_single_name self.name.downcase.underscore.to_sym
-						model_response_plural_name self.name.downcase.underscore.pluralize.to_sym						
-					end
+				end
 
-					def self.set_json_identifiers_by_default
-						model_request_single_name nil
-						model_response_single_name nil
-						model_response_plural_name nil
-					end
+				extend ActiveSupport::Concern
 
-					set_json_identifiers_by_default
+				#Class Level Methods and variables
+				included do
+
+					extend ClassMethods
 
 				end
 

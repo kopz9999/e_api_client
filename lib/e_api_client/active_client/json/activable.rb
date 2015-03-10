@@ -5,63 +5,14 @@ module EApiClient
 			#The following methods simulate active record but with REST API
 			module Activable
 
-				extend ActiveSupport::Concern
+				module ClassMethods
 
-				#Class Level Methods and variables
-				included do
+					#Active Record like methods
 
-					extend ActiveModel::Callbacks
-
-					define_model_callbacks :create, only: [:after, :before]
-					define_model_callbacks :update, only: [:after, :before]
-					define_model_callbacks :save, only: [:after, :before]
-					define_model_callbacks :destroy, only: [:after, :before]
-
-					# Class::where
-					# Generate an array of this class instances by consuming the service
-					# - parameters: request parameters
-					# - resource: path of the service
-					# - request_method: Enum to get GET, POST, PUT, DELETE
-					# - format: url format
-					# return [Array]
-					def self.where(parameters, resource = nil, request_method = RequestMethods::GET, format = 'json' )
-						request_url = self.build_request_url( resource )
-						self.select!( request_url, parameters, request_method, format )
-					end
-
-					# Class::select
-					# Generate an array of this class instances by consuming the service
-					# - resource: path of the service
-					# - parameters: request parameters
-					# - request_method: Enum to get GET, POST, PUT, DELETE
-					# - format: url format
-					# return [Array]
-					def self.select(resource = nil, parameters = {}, request_method = RequestMethods::GET, format = 'json' )
-						request_url = self.build_request_url( resource )
-						self.select!( request_url, parameters, request_method, format )
-					end
-
-					# Class::select!
-					# Generate an array of the service, but it acts in a direct url
-					# - request_url (required): url of the service
-					# - parameters: request parameters
-					# - request_method: Enum to get GET, POST, PUT, DELETE
-					# - format: url format
-					# return [Array]
-					def self.select!(request_url, parameters = {}, request_method = RequestMethods::GET, format = 'json' )
-						results = []
-						json_response = Pluggable.get_json(request_url, parameters, request_method, format)
-						unless json_response.nil?
-							json_results = Pluggable.verify_json(self.get_model_response_plural_name, json_response)
-							curr_ptr = nil
-							json_results.each do | json_hash |
-								curr_ptr = self.instance_by_json( json_hash )
-								results << curr_ptr
-							end
-							return results
-						else
-							return nil
-						end
+					def all
+						elements = query
+						elements.fetch
+						elements.results
 					end
 
 					# Class::create
@@ -72,7 +23,7 @@ module EApiClient
 					# - request_method: Enum to get GET, POST, PUT, DELETE					
 					# - format: url format
 					# return [Object]
-					def self.create(values = {}, options = {}, resource = nil, request_method = RequestMethods::POST, format = 'json')
+					def create(values = {}, options = {}, resource = nil, request_method = RequestMethods::POST, format = 'json')
 						request_url = self.build_request_url( resource )
 						self.create!( request_url, values, options, request_method, format )
 					end
@@ -85,7 +36,7 @@ module EApiClient
 					# - request_method: Enum to get GET, POST, PUT, DELETE					
 					# - format: url format
 					# return [Object]
-					def self.create!(request_url, values = {}, options = {}, request_method = RequestMethods::POST, format = 'json')
+					def create!(request_url, values = {}, options = {}, request_method = RequestMethods::POST, format = 'json')
 						curr_ptr = self.new( values )
 						curr_ptr.save!( request_url, options, request_method, format )
 						return curr_ptr
@@ -98,7 +49,7 @@ module EApiClient
 					# - request_method: Enum to get GET, POST, PUT, DELETE
 					# - format: url format
 					# return [Object]
-					def self.find(id, resource = nil, request_method = RequestMethods::GET, format = 'json')
+					def find(id, resource = nil, request_method = RequestMethods::GET, format = 'json')
 						if id.nil?
 							return nil
 						else
@@ -113,15 +64,39 @@ module EApiClient
 					# - request_method: Enum to get GET, POST, PUT, DELETE
 					# - format: url format
 					# return [Object]
-					def self.find!(request_url, request_method = RequestMethods::GET, format = 'json')
-						json_response = Pluggable.get_json(request_url, {}, request_method, format)
-						curr_ptr = nil
-						unless json_response.nil?
-							json_result = Pluggable.verify_json( self.get_model_response_single_name, json_response)
-							curr_ptr = self.instance_by_json( json_result )
-						end
-						return curr_ptr
+					def find!(request_url, request_method = RequestMethods::GET, format = 'json')
+						json_response = self.request_handler.request_member(request_url, {}, request_method, format)
+						json_result = self.pluggable_class.response_handler.response_member json_response
+						return json_result.nil? ? nil : self.instance_by_json( json_result )
 					end
+
+
+					#Delegate to the query
+
+	        def method_missing(method, *args)
+	          query.send(method, *args)
+	        end
+
+	        #Override to customize your queries resource
+
+	        def query_resource
+	        	nil
+	        end
+
+	        def query
+	        	EApiClient::ActiveClient::JSON::Query.new pluggable_class_val, build_request_url(query_resource)
+	        end
+
+				end
+
+				module InstanceMethods
+
+					extend ActiveModel::Callbacks
+
+					define_model_callbacks :create, only: [:after, :before]
+					define_model_callbacks :update, only: [:after, :before]
+					define_model_callbacks :save, only: [:after, :before]
+					define_model_callbacks :destroy, only: [:after, :before]
 
 					#Instance methods
 
@@ -138,6 +113,7 @@ module EApiClient
 					def id=(val)
 						raise NotImplementedError
 					end
+
 
 					# Class#destroy
 					# Destroys object in the database
@@ -160,7 +136,8 @@ module EApiClient
 						run_callbacks :destroy do
 							Pluggable.do_request( request_url, { id: self.id }, request_method, format )
 						end
-					end
+					end	
+					
 
 					# Class#update
 					# Updates object in the database
@@ -217,9 +194,23 @@ module EApiClient
 							assert_save_or_create do
 								do_save_request( request_url, rmeth, options, format )
 							end
-
 						end
 					end
+
+				end
+
+				extend ActiveSupport::Concern
+
+				#Class Level Methods and variables
+
+				included do
+
+					#Required Modules
+					include EApiClient::ActiveClient::JSON::Pluggable
+
+					#Logic modules
+					extend ClassMethods
+					include InstanceMethods
 
 				end
 

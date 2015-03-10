@@ -4,12 +4,7 @@ module EApiClient
 
       module ActiveModelable
 
-        extend ActiveSupport::Concern
-
-        included do
-
-          include ActiveModel::Conversion
-          extend ActiveModel::Naming
+        module InstanceMethods
 
           def new?
             self.id.nil?
@@ -18,6 +13,17 @@ module EApiClient
           def persisted?
             !new?
           end
+
+        end
+
+        extend ActiveSupport::Concern        
+
+        included do
+
+          include ActiveModel::Conversion
+          extend ActiveModel::Naming
+          
+          include InstanceMethods
 
         end  
 

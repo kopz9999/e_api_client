@@ -14,7 +14,7 @@ module EApiClient
 				endpoint = config[ Rails.env ][ "endpoint" ]
 				EApiClient::ActiveClient::JSON::Pluggable.global_base_url = endpoint
 			else
-				p "Endpoints should be provided on #{configuration_file}\nThey have to be provided manually"
+				EApiClient::Util.print "Endpoints should be provided on #{configuration_file}\nThey have to be provided manually"
 			end
 		end
 
