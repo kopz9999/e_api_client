@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Api::ItemTest < ActiveSupport::TestCase
+class Api::MemberTest < Api::BaseTest
 
   test "create" do
     item = Api::Item.create( name: "Item #{ Time.now.to_i }", quantity: 23.2 )

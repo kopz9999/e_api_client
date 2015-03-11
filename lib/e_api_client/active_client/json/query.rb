@@ -36,6 +36,22 @@ module EApiClient
 
         def where( query_parameters_val = {} )
           query_parameters.merge!( query_parameters_val )
+          self
+        end
+
+        def per( page_size )
+          pagination_parameters[:page_size] = page_size
+          self
+        end
+
+        def page( page_number )
+          pagination_parameters[:page] = page_number
+          self
+        end
+
+        def order( order_hash = {} )
+          order_parameters.merge! order_hash
+          self
         end
 
         def fetch
@@ -63,6 +79,19 @@ module EApiClient
         end
         
         private
+
+        def pagination_parameters
+          parameter_for :pagination
+        end
+
+        def order_parameters
+          parameter_for :ordering
+        end
+
+        def parameter_for( key )
+          query_parameters[ key ] ||= {}
+          query_parameters[ key ]          
+        end
 
         def query_parameters
           @query_parameters ||= {}

@@ -8,6 +8,10 @@ module EApiClient
           def transform( previous_value )
             raise NotImplementedError
           end
+
+          def persistent?
+            false
+          end
           
         end
 

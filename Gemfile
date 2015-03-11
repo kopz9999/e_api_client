@@ -12,7 +12,11 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-gem 'e_api_server', :path => '/Users/kopz/Rails/e_api_server'
+
+# API Server Gem, just for development
+gem 'e_api_server', 
+  :git => 'https://github.com/kopz9999/e_api_server',
+  :branch => :master
 
 #gem 'rakeup', '1.2.0'
 gem 'jbuilder', '~> 2.0'

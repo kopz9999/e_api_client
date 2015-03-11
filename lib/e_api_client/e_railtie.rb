@@ -23,7 +23,7 @@ module EApiClient
 		end
 
 		def set_rest_client
-			RestClient.log = Logger.new(STDOUT)
+			RestClient.log = Logger.new(STDOUT) if Rails.env.development?
 		end
 
 	  initializer "require dependencies" do

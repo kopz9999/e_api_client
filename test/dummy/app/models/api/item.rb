@@ -2,7 +2,7 @@ class Api::Item
 
 	include EApiClient::ActiveClient::JSON::Activable
 
-	model_resources "items"
+	model_resources :items
 
 	api_attr_accessor :id, :id
 	api_attr_accessor :name, :name

@@ -25,7 +25,7 @@ module EApiClient
             end
             case request_method 
               when RequestMethods::GET
-                result = RestClient.get url, { params: parameters, :accept => format }, &default_handler
+                result = RestClient.get "#{url}?#{parameters.to_query}", { :accept => format }, &default_handler
               when RequestMethods::POST
                 result = RestClient.post url, parameters, { :accept => format }, &default_handler
               when RequestMethods::PUT

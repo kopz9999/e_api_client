@@ -4,6 +4,10 @@ class ItemsController < ApplicationController
 
   protected
 
+  def get_order_params( required_params )
+    required_params.permit(:id, :quantity)
+  end
+
   def get_resource_params
     params.require(:item).permit(:id, :name, :quantity)
   end

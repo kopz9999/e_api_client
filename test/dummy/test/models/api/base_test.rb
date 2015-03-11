@@ -2,12 +2,12 @@ require 'test_helper'
 
 class Api::BaseTest < ActiveSupport::TestCase
 
-  test "all" do
-    items = Api::Item.all
-    products = Api::Product.all
-    binding.pry
-    assert_kind_of Array, items
-    assert_kind_of Array, products
+  def setup
+    #Clear remote db
+    cls_arr = [ Api::Item ]
+    cls_arr.each do | cls |
+      cls.all.each { |el| el.destroy }
+    end
   end
 
 end

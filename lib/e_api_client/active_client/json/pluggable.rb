@@ -45,13 +45,26 @@ module EApiClient
           def set_data_parser( mapped_attribute, data_parser_class )
             data_parser = data_parser_class.new
             alias_name = "#{mapped_attribute.local_identifier}_s".to_sym
+            instance_name = "@parsed_#{mapped_attribute.local_identifier}".to_sym
+            retrieve_method = "retrieve_#{mapped_attribute.local_identifier}".to_sym
+
+            define_method( retrieve_method ) do
+              return data_parser.transform self.send( alias_name )
+            end
 
             self.class_eval do
               alias_method(alias_name, mapped_attribute.local_identifier)
+              private retrieve_method
             end
 
             define_method( mapped_attribute.local_identifier ) do
-              return data_parser.transform self.send( alias_name )
+              if data_parser.persistent?
+                val = instance_variable_get instance_name
+                instance_variable_set(instance_name, self.send( retrieve_method )) if val.nil?
+              else
+                val = self.send( retrieve_method )
+              end
+              return val
             end
 
           end
@@ -123,12 +136,8 @@ module EApiClient
 
           def do_save_request( request_url, request_method, options = {}, format )
             result = self.class.request_handler.request_member( request_url, self.to_request_object, request_method, format )
-            save_success = false
-            case result.code
-              when StatusCodes::Created, StatusCodes::Ok then save_success = true
-            end
             self.class.response_handler.response_member result, self
-            return save_success
+            return result.code < 400
           end
 
           def assert_validation(options = {}, &block)
