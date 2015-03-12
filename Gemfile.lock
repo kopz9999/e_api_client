@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/kopz9999/e_api_server
-  revision: cbf25db77f4e3a89cf80d57f62d57ec16eca64c7
+  revision: 2027cb7a9302f3171f34cfdee03c99dd1b1d315b
   branch: master
   specs:
     e_api_server (0.0.2)
