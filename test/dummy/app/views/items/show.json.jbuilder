@@ -1,1 +1,0 @@
-json.(@item, *@item.attributes.keys)
