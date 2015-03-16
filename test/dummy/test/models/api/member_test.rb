@@ -2,12 +2,6 @@ require 'test_helper'
 
 class Api::MemberTest < Api::BaseTest
 
-  test ".create" do
-    item = Api::Item.create( name: "Item #{ Time.now.to_i }", quantity: 23.2 )
-    assert_kind_of Integer, item.id
-    assert_kind_of Api::Item, item
-  end
-
   test "#update" do
     name_to_update = "Item Updated - #{ Time.now.to_i }"
     item = Api::Item.create( name: "Item 2", quantity: 23.2 )
@@ -30,16 +24,6 @@ class Api::MemberTest < Api::BaseTest
     assert_match name_to_save, item.name
     assert created_id == item.id
     assert_kind_of Api::Item, item
-  end
-
-  test "#find" do
-    item = Api::Item.create( name: "Item #{ Time.now.to_i }", quantity: 23.2 )
-    item2 = Api::Item.find item.id
-    assert item.id == item2.id
-    assert item.name == item2.name
-    assert item.quantity == item2.quantity
-    assert_kind_of Api::Item, item
-    assert_kind_of Api::Item, item2
   end
 
   test "#destroy" do

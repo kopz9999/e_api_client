@@ -34,6 +34,14 @@ module EApiClient
             return obj
           end
 
+          def middleware_request_handler(value)
+            @request_handler = value
+          end
+
+          def middleware_response_handler(value)
+            @response_handler = value
+          end
+
           private
 
           def define_attribute( mapped_attribute )

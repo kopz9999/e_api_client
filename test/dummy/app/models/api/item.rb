@@ -1,13 +1,23 @@
 class Api::Item
 
+  # Module with configuration
 	include EApiClient::ActiveClient::JSON::Activable
 
+  # Specify base resource for the model. For example :items, will create http://devapi:3003/items
 	model_resources :items
 
+  # Specify request base name. For example, request will encapsulate fields under item, like 'item { name: "desc", quantity: 10 }'
+  request_element :item
+
+  # Map each attribute from your class to the resource
 	api_attr_accessor :id, :id
 	api_attr_accessor :name, :name
 	api_attr_accessor :quantity, :quantity	
+
+  # Map with parse
   api_attr_accessor :created_at, :created_at, EApiClient::ActiveClient::JSON::DataParser::DateTime
+
+  # Callbacks
 
   after_update :on_after_update
   after_save :on_after_save
@@ -18,8 +28,6 @@ class Api::Item
   before_save :on_before_save
   before_destroy :on_before_destroy
   before_create :on_before_create
-
-  request_element :item
 
   attr_accessor :message
 

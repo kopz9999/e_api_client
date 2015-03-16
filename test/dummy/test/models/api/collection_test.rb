@@ -34,12 +34,36 @@ class Api::CollectionTest < Api::BaseTest
     assert_equal ordered_items.last.id, unordered_items.last.id
   end
 
+  test ".where" do
+    items = Api::Item.all
+    filtered_items = Api::Item.order(id: "desc").where(id: items.first.id )
+
+    assert_equal filtered_items.length, 1
+    assert_equal filtered_items.first.id, items.first.id
+  end
+
   test ".remote_query" do
     searched_quantity = 40
     filtered_items = Api::Item.all.select{ |it| it.quantity > searched_quantity }
     remote_query = Api::Item.remote_query(resource: 'items/custom_resource', params: { quantity: searched_quantity }).remote_fetch
 
     assert_equal filtered_items.length, remote_query.length
+  end
+
+  test ".create" do
+    item = Api::Item.create( name: "Item #{ Time.now.to_i }", quantity: 23.2 )
+    assert_kind_of Integer, item.id
+    assert_kind_of Api::Item, item
+  end
+
+  test ".find" do
+    item = Api::Item.create( name: "Item #{ Time.now.to_i }", quantity: 23.2 )
+    item2 = Api::Item.find item.id
+    assert item.id == item2.id
+    assert item.name == item2.name
+    assert item.quantity == item2.quantity
+    assert_kind_of Api::Item, item
+    assert_kind_of Api::Item, item2
   end
 
 end
