@@ -58,6 +58,18 @@ end
 ```
 
 With this set, you can start the consumption of a remote API.
+<br/>
+Also if you want to use your model with Ruby on Rails helpers, you must include the module <b>ActiveModelable</b>:
+
+```ruby
+
+class Api::Item
+
+  include EApiClient::ActiveClient::JSON::ActiveModelable
+
+end
+
+```
 
 ## Collection Methods
 
@@ -156,12 +168,10 @@ Please check the test cases to have a better understanding of how to use the act
 
 To test these methods you need to run test dummy on localhost:3003
 
-<br/>
 ## TODO
 * Support for Batch requests
 * Add runtime attributes or attributes(*args) support.
 
-<br/>
 #Copyright 2015 Kyoto Kopz kopz9999@gmail.com
 
 #License
