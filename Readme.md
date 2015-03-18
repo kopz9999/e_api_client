@@ -127,28 +127,32 @@ end
 
 Check documentation to create your own middleware:
 
-[RequestHandler](docs/middleware/request.md)
-[ResponseHandler](docs/middleware/response.md)
+[RequestHandler](/docs/middleware/request.md)
+<br/>
+[ResponseHandler](/docs/middleware/response.md)
 
 You can set your own data parsers for certain fields:
 
 ```ruby
 
   # Map with custom parse
-  api_attr_accessor :created_at, :created_at, EApiClient::ActiveClient::JSON::DataParser::DateTime  
+  api_attr_accessor :prices, :prices, MyDataParser
 
 ```
 
 Check documentation to create your own parser:
 
-[DataParser](docs/data_parser.md)
+[DataParser](/docs/data_parser.md)
 
 Please check the test cases to have a better understanding of how to use the activable module methods:
 
-[Collection Examples](test/dummy/test/models/collection_test.rb)
-[Member Examples](test/dummy/test/models/member_test.rb)
-[Error Examples](test/dummy/test/models/error_test.rb)
-[Parser Example](test/dummy/test/models/property_test.rb)
+[Collection Examples](/test/dummy/test/models/api/collection_test.rb)
+<br/>
+[Member Examples](/test/dummy/test/models/api/member_test.rb)
+<br/>
+[Error Examples](/test/dummy/test/models/api/error_test.rb)
+<br/>
+[Parser Example](/test/dummy/test/models/api/property_test.rb)
 
 To test these methods you need to run test dummy on localhost:3003
 
