@@ -34,12 +34,12 @@ module EApiClient
             return obj
           end
 
-          def middleware_request_handler(value)
-            @request_handler = value
+          def middleware_request_handler(request_handler_cls)
+            @request_handler = request_handler_cls.new
           end
 
-          def middleware_response_handler(value)
-            @response_handler = value
+          def middleware_response_handler(response_handler_cls)
+            @response_handler = response_handler_cls.new(self)
           end
 
           private
