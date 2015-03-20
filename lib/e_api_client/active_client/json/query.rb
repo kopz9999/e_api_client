@@ -87,10 +87,10 @@ module EApiClient
           self.loaded = false
         end
 
-        def method_missing(method, *args)
+        def method_missing(method, *args, &block)
           if results.respond_to? method
             self.remote_fetch unless self.loaded?
-            results.send(method, *args)
+            results.send(method, *args, &block)
           else
             super
           end

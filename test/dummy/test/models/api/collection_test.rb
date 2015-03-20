@@ -66,4 +66,13 @@ class Api::CollectionTest < Api::BaseTest
     assert_kind_of Api::Item, item2
   end
 
+  test ".each" do
+    i = 0
+    items = Api::Item.order(id: "asc").page(2).per(3)
+    items.each do | it |
+      i += 1
+    end
+    assert_equal items.length, i
+  end
+
 end
