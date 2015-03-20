@@ -20,7 +20,7 @@ module EApiClient
               ma.remote_identifier = remote_attribute
             end
 
-            define_attribute current_attr
+            current_attr.define_attribute_for_class self
             set_data_parser(current_attr, data_parser_class) unless data_parser_class.nil?
 
             self.api_attributes << current_attr
@@ -43,12 +43,6 @@ module EApiClient
           end
 
           private
-
-          def define_attribute( mapped_attribute )
-            self.class_eval do
-              attr_accessor mapped_attribute.local_identifier.to_sym
-            end
-          end
 
           def set_data_parser( mapped_attribute, data_parser_class )
             data_parser = data_parser_class.new
@@ -100,7 +94,7 @@ module EApiClient
           # return [Nil]
           def set_attributes_by_json(json_obj = {})
             self.class.api_attributes.each do |api_attr|
-              meth_key = "#{ api_attr.local_identifier }=".to_sym
+              meth_key = "#{ api_attr.attribute_name }=".to_sym
               remote_value = json_obj[ api_attr.remote_identifier ]
               self.send(meth_key, remote_value )
             end
@@ -112,7 +106,7 @@ module EApiClient
             result = {}
             request_obj = {}
             self.class.api_attributes.each do |api_attr|
-              request_obj[ api_attr.local_identifier ] = self.send( api_attr.local_identifier )
+              request_obj[ api_attr.attribute_name ] = self.send( api_attr.attribute_name )
             end
             result[ self.class.get_request_element ] = request_obj
             return result

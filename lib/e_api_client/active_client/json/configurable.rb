@@ -42,7 +42,7 @@ module EApiClient
 					end
 
 					def get_model_resources
-						@model_resources ||= self.name.downcase.underscore.pluralize
+						@model_resources ||= self.name.pluralize.underscore
 					end
 
 					def model_resources(val)
@@ -50,7 +50,7 @@ module EApiClient
 					end
 
 					def get_request_element
-						@request_element ||= self.name.downcase.underscore.to_sym
+						@request_element ||= self.name.underscore.to_sym
 					end
 
 					def request_element(val)
