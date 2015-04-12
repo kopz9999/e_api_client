@@ -4,7 +4,9 @@ module EApiClient
 
 			module Configurable
 
-				#Global configuration
+				extend ActiveSupport::Concern
+
+				# Global configuration
 
 				def self.global_base_url
 					@@global_base_url
@@ -60,15 +62,6 @@ module EApiClient
 					def api_attributes
 						@api_attributes ||= []
 					end
-
-				end
-
-				extend ActiveSupport::Concern
-
-				#Class Level Methods and variables
-				included do
-
-					extend ClassMethods
 
 				end
 

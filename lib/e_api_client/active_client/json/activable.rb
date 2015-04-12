@@ -5,6 +5,8 @@ module EApiClient
       #The following methods simulate active record but with REST API
       module Activable
 
+        extend ActiveSupport::Concern
+
         module ClassMethods
 
           #Active Record like methods
@@ -196,8 +198,6 @@ module EApiClient
 
         end
 
-        extend ActiveSupport::Concern
-
         #Class Level Methods and variables
 
         included do
@@ -209,7 +209,6 @@ module EApiClient
           extend ActiveModel::Callbacks
 
           #Logic modules
-          extend ClassMethods
           include InstanceMethods
 
           #Model Callbacks

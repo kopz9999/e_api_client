@@ -4,6 +4,8 @@ module EApiClient
 
       module Pluggable
 
+        extend ActiveSupport::Concern
+
         module ClassMethods
 
           def request_handler
@@ -157,8 +159,6 @@ module EApiClient
 
         end
 
-        extend ActiveSupport::Concern
-
         #Class Level Methods and variables
         included do
 
@@ -167,7 +167,6 @@ module EApiClient
           include EApiClient::ActiveClient::JSON::Configurable
 
           #Functionality methods
-          extend ClassMethods
           include InstanceMethods
 
         end
